@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time 3D Model</title>
+</head>
+<body>
+    <h1>Real-Time 3D Model with Sensor Data</h1>
+    {{ graph|safe }}
+
+    <script>
+        async function fetchData() {
+            const response = await fetch('/sensor-data');
+            const data = await response.json();
+            console.log('Sensor Data:', data);
+        }
+
+        setInterval(fetchData, 5000);
+    </script>
+</body>
+</html>
